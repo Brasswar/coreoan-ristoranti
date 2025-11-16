@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Custom scrollbar for modern browsers */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-base-200;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-base-300 rounded-lg;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-base-content/20;
+    }
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Base typography */
+    body {
+        @apply antialiased;
+    }
+}
+
+@layer components {
+    /* Custom transitions for page changes */
+    .page-transition-enter-active,
+    .page-transition-leave-active {
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .page-transition-enter-from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .page-transition-leave-to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    /* Smooth fade transitions */
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.2s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    /* Slide transitions */
+    .slide-enter-active,
+    .slide-leave-active {
+        transition: all 0.3s ease;
+    }
+
+    .slide-enter-from {
+        transform: translateX(-100%);
+    }
+
+    .slide-leave-to {
+        transform: translateX(100%);
+    }
+}
+
+@layer utilities {
+    /* Text balance for headings */
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    /* Prevent layout shift during loading */
+    .min-h-screen-safe {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    /* Focus visible styles */
+    .focus-ring {
+        @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    }
+}
